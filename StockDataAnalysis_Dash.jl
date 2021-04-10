@@ -1,4 +1,4 @@
-include("D:\\Binto\\ddd\\Julia\\Stock_Analysis_Dash_Demo\\StockDataAnalysisBase.jl")
+include("StockDataAnalysisBase.jl")
 
 using Dash, DashCoreComponents, DashHtmlComponents;
 
