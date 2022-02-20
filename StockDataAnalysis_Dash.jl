@@ -1,6 +1,7 @@
 include("StockDataAnalysisBase.jl")
 
-using Dash, DashCoreComponents, DashHtmlComponents;
+#using Dash, DashCoreComponents, DashHtmlComponents;
+using Dash;
 
 function hPlot(df, name::String = "Market Data")
     a = scatter(x = df.Date, y = df.Close, name = name)
@@ -112,7 +113,7 @@ callback!(app, Output("div2", "children"), Input("call_id", "value")) do x
     if x === nothing
         return nothing;
     else
-        return [html_span("Moving Average: ", style = Dict("color" => "#dce0e1")), dcc_input(id="m_avrg_inp1",type = "number", min=5, max=20, value=7, style=(margin="0 .2em 0 .2em",))]
+        return [html_span("Moving Average: ", style = Dict("color" => "#dce0e1")), dcc_input(id="m_avrg_inp1",type = "number", min=5, max=50, value=7, style=(margin="0 .2em 0 .2em",))]
     end
 end
 
@@ -125,7 +126,8 @@ callback!(app, Output("div3", "children"), Input("call_id", "value"), Input("m_a
 end
 
 @info "Setup and now serving..."
-port = something(tryparse(Int, get(ARGS, 1, "")), tryparse(Int, get(ENV, "PORT", "")), 8080)
-run_server(app, "0.0.0.0", port)
+#port = something(tryparse(Int, get(ARGS, 1, "")), tryparse(Int, get(ENV, "PORT", "")), 8080)
+#run_server(app, "0.0.0.0", port)
+run_server(app, "0.0.0.0", debug=false)
 
 # use radio items to select the plots and a checkbox to compare 
