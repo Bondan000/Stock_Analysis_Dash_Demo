@@ -126,8 +126,8 @@ callback!(app, Output("div3", "children"), Input("call_id", "value"), Input("m_a
 end
 
 @info "Setup and now serving..."
-#port = something(tryparse(Int, get(ARGS, 1, "")), tryparse(Int, get(ENV, "PORT", "")), 8080)
-#run_server(app, "0.0.0.0", port)
-run_server(app, "0.0.0.0", debug=false)
+port = something(tryparse(Int, get(ARGS, 1, "")), tryparse(Int, get(ENV, "PORT", "")), 8080)
+run_server(app, "0.0.0.0", port)
+#run_server(app, "0.0.0.0", debug=false)
 
 # use radio items to select the plots and a checkbox to compare 
