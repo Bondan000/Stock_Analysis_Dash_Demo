@@ -1,1 +1,1 @@
-web: julia --project StockDataAnalysis_Dash.jl $PORT
+web: julia --project app.jl $PORT

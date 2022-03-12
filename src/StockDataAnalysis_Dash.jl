@@ -1,3 +1,5 @@
+module StockDataAnalysis_Dash
+
 include("StockDataAnalysisBase.jl")
 
 #using Dash, DashCoreComponents, DashHtmlComponents;
@@ -8,6 +10,7 @@ function hPlot(df, name::String = "Market Data")
     Plot(a)
 end
 
+export create_app
 
 tui = HistData("TUI1.DE", today()-Year(2), today());
 air = HistData("AIR.DE", today()-Year(2), today());
@@ -38,6 +41,7 @@ CallSign_List = Dict(
     "SAP" => sap,
     "CRUDE" => crude);
 
+function create_app()
 #app = dash(external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"])
 app = dash(external_stylesheets = ["https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"])
 #app = dash()
@@ -125,9 +129,14 @@ callback!(app, Output("div3", "children"), Input("call_id", "value"), Input("m_a
     end
 end
 
-@info "Setup and now serving..."
-port = something(tryparse(Int, get(ARGS, 1, "")), tryparse(Int, get(ENV, "PORT", "")), 8080)
-run_server(app, "0.0.0.0", port)
+return app
+end
+
+#@info "Setup and now serving..."
+#port = something(tryparse(Int, get(ARGS, 1, "")), tryparse(Int, get(ENV, "PORT", "")), 8080)
+#run_server(app, "0.0.0.0", port)
 #run_server(app, "0.0.0.0", debug=false)
 
 # use radio items to select the plots and a checkbox to compare 
+
+end
