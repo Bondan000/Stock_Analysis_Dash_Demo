@@ -10,7 +10,7 @@ function hPlot(df, name::String = "Market Data")
     Plot(a)
 end
 
-export create_app
+export create_app, run_server
 
 tui = HistData("TUI1.DE", today()-Year(2), today());
 air = HistData("AIR.DE", today()-Year(2), today());
