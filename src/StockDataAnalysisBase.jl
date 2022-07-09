@@ -24,7 +24,7 @@ function HistData(callSign::String, period1, period2)
         return("Period 1 is smaller than period 2! Please enter correct time frame!")
     else
         sleep(rand(2:10))
-        dta = load("https://query1.finance.yahoo.com/v7/finance/download/$callSign?period1=$(yDate(period1))&period2=$(yDate(period2))&interval=1d&events=history.csv") |> DataFrame
+        dta = load(File(format"CSV", "https://query1.finance.yahoo.com/v7/finance/download/$callSign?period1=$(yDate(period1))&period2=$(yDate(period2))&interval=1d&events=history&includeAdjustedClose=true")) |> DataFrame
         dta[!, :Voltality] = dta[:, :High] - dta[:, :Low]
         dropmissing!(dta)
         return(dta)
