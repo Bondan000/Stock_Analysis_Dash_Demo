@@ -1,10 +1,9 @@
 #Author: Binto N
 
-#module StockDataAnalysisBase
+module StockDataAnalysisBase
 
 using CSVFiles, Query, DataFrames, Statistics, Dates, Plotly
 
-export HistData, mdPlot, vPlot, localextremas, ePlot, rcPlot, ChartAnalyse
 
 function yDate(dt)
     refDateNo = 1577836800
@@ -224,4 +223,6 @@ function maPlot(df::DataFrame, period::Int = 10, name::String = "Market Data")
     Plot([a,b], layout)
 end
 
-#end
+export HistData, mdPlot, vPlot, localextremas, ePlot, rcPlot, ChartAnalyse
+
+end

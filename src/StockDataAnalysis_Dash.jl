@@ -10,13 +10,12 @@ function hPlot(df, name::String = "Market Data")
     Plot(a)
 end
 
-export create_app, run_server
 
 tui = HistData("TUI1.DE", today()-Year(2), today());
 air = HistData("AIR.DE", today()-Year(2), today());
 dal = HistData("DAL", today()-Year(2), today());
 omv = HistData("OMV.DE", today()-Year(2), today());
-rds = HistData("RDS-B", today()-Year(2), today());
+rds = HistData("L3H.F", today()-Year(2), today());
 sp500 = HistData("%5EGSPC", today()-Year(2), today());
 dax = HistData("%5EGDAXI", today()-Year(2), today());
 flu = HistData("FLU.VI", today()-Year(2), today());
@@ -31,7 +30,7 @@ CallSign_List = Dict(
     "AIR" => air, 
     "DAL" => dal, 
     "OMV" => omv, 
-    "RDS.B" => rds,
+    "L3H.F" => rds,
     "S&P500" => sp500,
     "DAX" => dax,
     "FLU" => flu,
@@ -138,5 +137,5 @@ end
 #run_server(app, "0.0.0.0", debug=false)
 
 # use radio items to select the plots and a checkbox to compare 
-
+export create_app, run_server
 end
