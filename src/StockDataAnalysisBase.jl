@@ -1,6 +1,6 @@
 #Author: Binto N
 
-module StockDataAnalysisBase
+#module StockDataAnalysisBase
 
 using CSVFiles, Query, DataFrames, Statistics, Dates, Plotly
 
@@ -225,4 +225,4 @@ end
 
 export HistData, mdPlot, vPlot, localextremas, ePlot, rcPlot, ChartAnalyse
 
-end
+#end
