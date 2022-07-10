@@ -1,7 +1,7 @@
 #Author: Binto N
 
 #module StockDataAnalysisBase
-
+__precompile__(true)
 using CSVFiles, Query, DataFrames, Statistics, Dates, Plotly
 
 

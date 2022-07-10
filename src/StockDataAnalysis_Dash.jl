@@ -137,5 +137,10 @@ end
 #run_server(app, "0.0.0.0", debug=false)
 
 # use radio items to select the plots and a checkbox to compare 
+function julia_main()
+    create_app()
+end
+
 export create_app, run_server
+
 end

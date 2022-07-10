@@ -1,3 +1,3 @@
 using StockDataAnalysis_Dash
 
-StockDataAnalysis_Dash.create_app()
+StockDataAnalysis_Dash.julia_main()
